@@ -1,0 +1,16 @@
+/* Gradient transparent - color - transparent */
+hr.linearGradient {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 181, 0, 0.1), rgba(255, 181, 0, 1), rgba(255, 181, 0, 0.1));
+}
+
+.btn-outline-success {
+  color: #FFB500;
+  border-color: #FFB500;
+}
+
+.btn-outline-success:hover {
+  color:white;
+  background-color: #FFB500;
+}
