@@ -1,3 +1,22 @@
-<p>
-  recipe-list works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h4>
+      <i class="fa fa-cutlery"></i> Recipes
+    </h4>
+  </div>
+  <div class="col-md-6">
+    <h6 class="text-right text-secondary">
+      Your Recipes
+    </h6>
+  </div>
+</div>
+
+<ul *ngFor="let recipes of recipes" >
+  <li>
+    {{recipes.title}}
+
+  </li>
+</ul>
+
+
+
