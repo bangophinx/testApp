@@ -7,8 +7,9 @@ import { IRecipe } from '../models/recipe.model';
 @Injectable()
 export class RecipeService {
   recipesCollection: AngularFirestoreCollection<IRecipe>;
-  recipesDoc: AngularFirestoreDocument<IRecipe>;
+  recipeDoc: AngularFirestoreDocument<IRecipe>;
   recipes: Observable<IRecipe[]>;
+  recipe: Observable<IRecipe>;
   client: Observable<IRecipe>;
 
   constructor(private afs: AngularFirestore) {
@@ -29,5 +30,22 @@ export class RecipeService {
     );
     return this.recipes;
   }
+
+  getRecipe(id: string): Observable<IRecipe>{
+    this.recipeDoc = this.afs.doc<IRecipe>(`recipes/${id}`);
+    this.recipe = this.recipeDoc.snapshotChanges().map(
+      action => {
+        if (action.payload.exists === false) {
+          return null          
+        } else {
+          const data = action.payload.data() as IRecipe;
+          data.id = action.payload.id;
+          return data;
+        }
+      }
+    );
+    return this.recipe;          
+  }
+
 
 }

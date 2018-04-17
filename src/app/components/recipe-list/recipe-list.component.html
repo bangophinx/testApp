@@ -12,11 +12,11 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4 col-sm-6" *ngFor="let recipes of recipes">
-    <a href="#" class="list-group-item">
-      <img class="img-reponsive" style="max-width: 200px;" src="{{recipes.imagePath}}" alt="">
-      <h5 class="list-group-item-heading" >{{recipes.title}}</h5> 
-      <p class="list-group-item-text" >{{recipes.description}}</p> 
+  <div class="col-md-4 col-sm-6" *ngFor="let recipe of recipes">
+    <a routerLink="/recipe/{{recipe.id}}" class="list-group-item">
+      <img class="img-reponsive" style="max-width: 200px;" src="{{recipe.imagePath}}" alt="">
+      <h5 class="list-group-item-heading" >{{recipe.title}}</h5> 
+      <p class="list-group-item-text" >{{recipe.description}}</p> 
     </a>
   </div>
 </div>

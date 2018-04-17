@@ -1,3 +1,19 @@
-<p>
-  recipe-details works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link btn-primary">
+      <i class="fa fa-arrow-circle-o-left"></i>
+      Back to Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+    <div class="pull-right">
+      <a class="btn btn-info">
+        <i class="fa fa-heart-o"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="mt-4" *ngIf="recipe">
+  <h1 class="list-group-item-heading">{{recipe.title}}</h1>
+  <img class="img-reponsive" style="max-height: 500px;" src="{{recipe.imagePath}}" alt="">
+</div>
