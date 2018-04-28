@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { RecipeService } from './services/recipe.service';
+import { IngredientService } from './services/ingredient.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { RecipeService } from './services/recipe.service';
     AngularFirestoreModule,
     AppRoutingModule
   ],
-  providers: [RecipeService, AuthService],
+  providers: [RecipeService, AuthService, IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

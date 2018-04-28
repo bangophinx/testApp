@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from "rxjs/Observable";
 import { IRecipe } from '../models/recipe.model';
+import { IIngredient } from '../models/ingredient.model';
 
 
 @Injectable()
@@ -10,7 +11,6 @@ export class RecipeService {
   recipeDoc: AngularFirestoreDocument<IRecipe>;
   recipes: Observable<IRecipe[]>;
   recipe: Observable<IRecipe>;
-  client: Observable<IRecipe>;
 
   constructor(private afs: AngularFirestore) {
     this.recipesCollection = this.afs.collection(

@@ -1,0 +1,17 @@
+/* Container holding the image and the text */
+.recipe-main-info {
+  position: relative;
+  text-align: center;
+}
+
+.main-text {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  overflow: hidden;
+}
+
+.main-img {
+  width:100%;
+  max-height: 200px;
+}
