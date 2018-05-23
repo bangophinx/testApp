@@ -3,5 +3,5 @@ export interface IIngredient {
   id: string;
   categoryId?: number;
   description?: string;
-  image?: string
+  image?: string;
 }
