@@ -4,6 +4,7 @@ import { RecipeService } from '../../services/recipe.service';
 import { IRecipe } from '../../models/recipe.model';
 import { IIngredient } from '../../models/ingredient.model';
 import { IngredientService } from '../../services/ingredient.service';
+import { ICookingStep } from '../../models/cooking-step.model';
 
 @Component({
   selector: 'app-recipe-details',
@@ -14,10 +15,10 @@ export class RecipeDetailsComponent implements OnInit {
 
   recipe: IRecipe;
   recipeId: string;
-  ingredient: IIngredient;
-  ingredients: IIngredient[];
-  ingredientId: string;
+  ingredients: IIngredient[] = [];
   ingredientIds: string[] = [];
+  cookingSteps: ICookingStep[];
+  favoured = false;
 
   constructor(
     private recipeService: RecipeService,
@@ -31,24 +32,24 @@ export class RecipeDetailsComponent implements OnInit {
     this.recipeService.getRecipe(this.recipeId).subscribe(
       recipe => {
         this.recipe = recipe;
-        this.ingredients = recipe.ingredients;
-        this.ingredientId = recipe.ingredients[0].id;
-        this.onGetIngredient()
+        this.cookingSteps = recipe.cookingSteps;
         recipe.ingredients.forEach(ingredient => {
-          this.ingredientIds.push(ingredient.id);
+          this.recipeIngredients(ingredient.id);
         });
-        console.log(this.ingredientIds);
       }
     );
   }
 
-  onGetIngredient() {
-    this.ingredientService.getIngredient(this.ingredientId).subscribe(
+  recipeIngredients(id) {
+    this.ingredientService.getIngredient(id).subscribe(
       ingredient => {
-        this.ingredient = ingredient;
-        console.log(ingredient);
+        this.ingredients.push(ingredient);
       }
     );
+  }
+
+  recipeFavoured() {
+    this.favoured = !this.favoured;
   }
 
 }

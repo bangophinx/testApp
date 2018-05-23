@@ -1,15 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
-.btn-outline-primary, .btn-primary, .btn-primary {
+.btn-primary {
+  color: white;
+  background-color: #FFB500;
+  border-color: #FFB500;
+}
+
+.btn-outline-primary, .btn-link {
   color: #FFB500;
   border-color: #FFB500;
 }
 
-.btn-outline-primary:hover,  {
+.btn-link:hover {
+  color: #FFB500;
+}
+
+.btn-outline-primary:hover {
   color:white;
+  border-color: #FFB500;  
   background-color: #FFB500;
 }
 
 .btn-primary:hover {
   color: #FFB500;
+}
+
+.border-primary {
+  border-color: #FFB500 !important;
+}
+
+.btn-outline-secondary, .btn-secondary, .btn-secondary {
+  color: #85458A;
+  border-color: #85458A;
+}
+
+.btn-secondary {
+  color:white;
+  background-color: #85458A;
+}
+
+.fa-heart-o {
+  color:  #85458A;  
+}
+
+h5 {
+  color:  #85458A;    
 }

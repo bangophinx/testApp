@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { IRecipe } from '../models/recipe.model';
 import { IIngredient } from '../models/ingredient.model';
 
@@ -31,12 +31,12 @@ export class RecipeService {
     return this.recipes;
   }
 
-  getRecipe(id: string): Observable<IRecipe>{
+  getRecipe(id: string): Observable<IRecipe> {
     this.recipeDoc = this.afs.doc<IRecipe>(`recipes/${id}`);
     this.recipe = this.recipeDoc.snapshotChanges().map(
       action => {
         if (action.payload.exists === false) {
-          return null          
+          return null;
         } else {
           const data = action.payload.data() as IRecipe;
           data.id = action.payload.id;
@@ -44,7 +44,7 @@ export class RecipeService {
         }
       }
     );
-    return this.recipe;          
+    return this.recipe;
   }
 
 
